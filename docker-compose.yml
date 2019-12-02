@@ -1,0 +1,22 @@
+# syntax version.
+version: "3.7"
+
+volumes:
+  php-alpine-cache-edge:
+  php-alpine-cache-v3.9:
+  php-alpine-cache-v3.8:
+  php-alpine-cache-v3.7:
+
+# services list.
+services:
+  # sandbox base image
+  sandbox:
+    # target image.
+    image: "abuild-sandbox:alpine-${ALPINE_VERSION}"
+    build:
+      context: "sandbox"
+      args:
+        ALPINE_VERSION: ${ALPINE_VERSION}
+    volumes:
+      - "./.abuild:/home/sandbox/.abuild"
+      - "php-alpine-cache-v${ALPINE_VERSION}:/var/cache/apk"
