@@ -8,7 +8,7 @@ ARG ALPINE_VERSION
 FROM alpine:$ALPINE_VERSION
 
 # MAINTAINER.
-MAINTAINER limingxinleo <l@hyperf.io>
+LABEL maintainer="limingxinleo <l@hyperf.io>" version="1.0"
 
 # AFTER IMAGE DEFINITION ARGUMENTS
 ARG ALPINE_VERSION
